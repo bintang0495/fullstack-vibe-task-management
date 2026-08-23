@@ -10,17 +10,29 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 app.use(cors({
-  origin: process.env.VITE_API_URL || 'http://localhost:5173',
+  origin: (origin, callback) => {
+    // Allow requests with no origin (like mobile apps, curl) or localhost
+    if (!origin || origin.includes('localhost') || origin.includes('127.0.0.1')) {
+      callback(null, true);
+    } else {
+      callback(null, true); // Permissive in dev
+    }
+  },
   credentials: true
 }));
 
 app.use(express.json());
 app.use(cookieParser());
 
-// Routes
+// Routes - support both /api prefix and direct paths
 app.use('/api/auth', authRoutes);
-app.use('/api', taskRoutes);
+app.use('/auth', authRoutes);
+
 app.use('/api/dashboard', dashboardRoutes);
+app.use('/dashboard', dashboardRoutes);
+
+app.use('/api', taskRoutes);
+app.use('/', taskRoutes);
 
 app.get('/health', (req, res) => {
   res.json({ status: 'ok' });
