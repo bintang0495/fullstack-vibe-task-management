@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: task-scheduler-api
+    runtime: node
+    rootDir: backend
+    plan: free
+    buildCommand: npm install && npx knex migrate:latest
+    startCommand: npm start
+    envVars:
+      - key: DATABASE_URL
+        sync: false
+      - key: JWT_SECRET
+        sync: false
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 3000
