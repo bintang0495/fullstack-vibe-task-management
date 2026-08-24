@@ -32,8 +32,11 @@ const Login = () => {
         
         {/* Brand Header */}
         <div className="text-center">
-          <div className="mx-auto w-14 h-14 bg-blue-600 rounded-2xl flex items-center justify-center text-white shadow-md shadow-blue-200">
-            <CheckSquare className="w-7 h-7" />
+          <div 
+            className="mx-auto w-14 h-14 rounded-2xl flex items-center justify-center text-white shadow-md shadow-blue-200"
+            style={{ backgroundColor: '#2563eb' }}
+          >
+            <CheckSquare className="w-7 h-7 text-white" />
           </div>
           <h2 className="mt-4 text-2xl sm:text-3xl font-extrabold text-gray-900">
             Weekly Task Scheduler
@@ -106,11 +109,12 @@ const Login = () => {
             <button
               type="submit"
               disabled={isLoading}
-              className={`w-full flex items-center justify-center py-2.5 px-4 border border-transparent text-sm font-semibold rounded-lg text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 shadow-md shadow-blue-100 transition-all ${
+              style={{ backgroundColor: '#2563eb', color: '#ffffff' }}
+              className={`w-full flex items-center justify-center py-3 px-4 rounded-lg text-sm font-bold shadow-md shadow-blue-200 hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-all ${
                 isLoading ? 'opacity-75 cursor-not-allowed' : ''
               }`}
             >
-              <LogIn className="w-4 h-4 mr-2" />
+              <LogIn className="w-4 h-4 mr-2 text-white" />
               {isLoading ? 'Sedang Masuk...' : 'Log In (Masuk)'}
             </button>
 
