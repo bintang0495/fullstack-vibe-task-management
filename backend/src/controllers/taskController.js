@@ -1,6 +1,4 @@
-const knex = require('knex');
-const knexConfig = require('../../knexfile');
-const db = knex(knexConfig.development); // Or determine env based on NODE_ENV
+const db = require('../db');
 
 // --- Master Tasks ---
 

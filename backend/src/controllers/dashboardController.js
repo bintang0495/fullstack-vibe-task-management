@@ -1,6 +1,4 @@
-const knex = require('knex');
-const knexConfig = require('../../knexfile');
-const db = knex(knexConfig.development);
+const db = require('../db');
 
 exports.getSummary = async (req, res) => {
   try {

@@ -1,8 +1,6 @@
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
-const knex = require('knex');
-const knexConfig = require('../../knexfile');
-const db = knex(knexConfig.development); // Or determine env based on NODE_ENV
+const db = require('../db');
 
 exports.register = async (req, res) => {
   try {
