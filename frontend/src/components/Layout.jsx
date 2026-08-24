@@ -12,11 +12,11 @@ const SidebarLink = ({ to, icon: Icon, children }) => {
       to={to} 
       className={`flex items-center space-x-3 px-4 py-3 rounded-lg transition-colors duration-200 ${
         isActive 
-          ? 'bg-primary-50 text-primary-600 font-medium' 
+          ? 'bg-blue-50 text-blue-600 font-semibold' 
           : 'text-gray-600 hover:bg-gray-100 hover:text-gray-900'
       }`}
     >
-      <Icon className={`w-5 h-5 ${isActive ? 'text-primary-600' : 'text-gray-400'}`} />
+      <Icon className={`w-5 h-5 ${isActive ? 'text-blue-600' : 'text-gray-400'}`} />
       <span>{children}</span>
     </Link>
   );
@@ -33,10 +33,18 @@ const Layout = () => {
     <div className="flex h-screen bg-gray-50 overflow-hidden font-sans">
       {/* Sidebar */}
       <aside className="w-64 bg-white border-r border-gray-200 flex flex-col">
-        <div className="h-16 flex items-center px-6 border-b border-gray-200">
-          <h1 className="text-xl font-bold bg-gradient-to-r from-primary-600 to-blue-500 bg-clip-text text-transparent">
-            Task Scheduler
-          </h1>
+        <div className="h-16 flex items-center px-5 border-b border-gray-200 gap-3">
+          <div className="w-9 h-9 bg-blue-600 rounded-xl flex items-center justify-center text-white shadow-sm">
+            <CheckSquare className="w-5 h-5 text-white" />
+          </div>
+          <div>
+            <h1 className="text-base font-bold text-gray-900 leading-tight">
+              Task Scheduler
+            </h1>
+            <span className="text-[10px] uppercase font-bold tracking-wider text-blue-600 bg-blue-50 px-1.5 py-0.5 rounded">
+              Weekly Routine
+            </span>
+          </div>
         </div>
         
         <nav className="flex-1 overflow-y-auto py-4 px-3 space-y-1">
